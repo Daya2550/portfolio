@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Design Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Portfolio Design Test</h1>
+        
+        <!-- Test Project Cards -->
+        <section class="mb-5">
+            <div class="container section-title">
+                <h2>Projects</h2>
+                <div class="title-shape">
+                    <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="my-project-card">
+                        <div class="my-project-image">
+                            <div style="height: 220px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                                <i class="bi bi-code-square"></i>
+                            </div>
+                        </div>
+                        <div class="my-project-content">
+                            <h4>Sample Project</h4>
+                            <p class="my-project-tech">PHP • MySQL • JavaScript • Bootstrap</p>
+                            <p class="my-project-description">This is a sample project description to test the card layout and styling.</p>
+                            <div class="my-project-meta">
+                                <small><strong>Team Size:</strong> 3</small><br>
+                                <small><strong>Duration:</strong> 2023-01-01 - 2023-03-01</small>
+                            </div>
+                            <div class="my-project-links">
+                                <a href="#" class="btn btn-primary btn-sm me-2">
+                                    <i class="bi bi-github"></i> GitHub
+                                </a>
+                                <a href="#" class="btn btn-success btn-sm">
+                                    <i class="bi bi-globe"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="my-project-card">
+                        <div class="my-project-image">
+                            <div style="height: 220px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                        </div>
+                        <div class="my-project-content">
+                            <h4>Another Project</h4>
+                            <p class="my-project-tech">React • Node.js • MongoDB</p>
+                            <p class="my-project-description">Another sample project to showcase the responsive design and card layout.</p>
+                            <div class="my-project-links">
+                                <a href="#" class="btn btn-primary btn-sm me-2">
+                                    <i class="bi bi-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Test Certificate Cards -->
+        <section class="certificates">
+            <div class="container section-title">
+                <h2>Certificates</h2>
+                <div class="title-shape">
+                    <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <div style="height: 250px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <div class="certificate-overlay">
+                                <div class="certificate-info">
+                                    <h5>Sample Certificate</h5>
+                                    <p>Certificate Provider</p>
+                                    <p><small>Web Development</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <div style="height: 250px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                                <i class="bi bi-trophy"></i>
+                            </div>
+                            <div class="certificate-overlay">
+                                <div class="certificate-info">
+                                    <h5>Another Certificate</h5>
+                                    <p>Another Provider</p>
+                                    <p><strong>Score:</strong> 95%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>

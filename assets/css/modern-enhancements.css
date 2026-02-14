@@ -1,0 +1,229 @@
+/**
+ * Modern Enhancements for Portfolio
+ * Focus: Premium UI, Glassmorphism, smooth animations
+ */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --card-hover-transform: translateY(-10px) scale(1.02);
+}
+
+/* Section Title Enhancement */
+.section-title h2 {
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Project Card Modernization */
+.my-project-card {
+    background: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.my-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+    z-index: 2;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+}
+
+.my-project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.my-project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.my-project-image {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+}
+
+.my-project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.my-project-card:hover .my-project-image img {
+    transform: scale(1.1);
+}
+
+/* Overlay Effect on Image */
+.my-project-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.my-project-card:hover .my-project-image::after {
+    opacity: 1;
+}
+
+.my-project-content {
+    padding: 25px;
+    position: relative;
+    background: #fff;
+    z-index: 2;
+}
+
+.my-project-content h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 15px;
+}
+
+/* Tech Stack Tags */
+.my-project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    text-transform: none; /* Override uppercase */
+    color: inherit; /* Reset color */
+    font-size: 100%; /* Reset size */
+}
+
+.tech-tag {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.my-project-card:hover .tech-tag {
+    background: #667eea;
+    color: #fff;
+}
+
+.my-project-description {
+    color: #636e72;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.my-project-meta {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-left: 3px solid #667eea;
+}
+
+.my-project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.my-project-links .btn {
+    flex: 1;
+    border-radius: 50px;
+    padding: 10px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.my-project-links .btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+}
+
+.my-project-links .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.my-project-links .btn-success {
+    background: #fff;
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.my-project-links .btn-success:hover {
+    background: #28a745;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .my-project-card {
+        margin-bottom: 30px;
+    }
+}
+
+/* Generic Modern Card */
+.modern-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+    overflow: hidden;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Modern Timeline for Experience */
+.timeline-modern-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border-left: 4px solid var(--accent-color); /* Fallback */
+    border-left: 4px solid #667eea;
+}
+
+.timeline-modern-item:hover {
+    transform: translateX(10px);
+}
+
