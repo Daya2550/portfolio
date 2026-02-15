@@ -1,5 +1,5 @@
 <?php
-require 'db.php'; // make sure this connects correctly using $pdo
+require 'includes/config.php'; // make sure this connects correctly using $pdo
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name    = trim($_POST['name'] ?? '');
@@ -12,8 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $pdo->prepare("INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)");
             $stmt->execute([$name, $email, $subject, $message]);
 
-            // ✅ Redirect back to index.php with anchor to #contact
-            header("Location: index.php#contact");
+            echo "OK"; 
             exit;
 
         } catch (PDOException $e) {

@@ -127,17 +127,34 @@
                 errorDiv.style.display = 'none';
                 successDiv.style.display = 'none';
                 
-                // Simulate form submission (replace with actual AJAX call)
-                setTimeout(() => {
+                // Send form data using Fetch API
+                fetch(this.getAttribute('action'), {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => {
+                    return response.text();
+                })
+                .then(data => {
                     loadingDiv.style.display = 'none';
-                    successDiv.style.display = 'block';
-                    this.reset();
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        successDiv.style.display = 'none';
-                    }, 5000);
-                }, 2000);
+                    if (data.trim() === 'OK') {
+                        successDiv.style.display = 'block';
+                        this.reset();
+                        setTimeout(() => {
+                            successDiv.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action);
+                    }
+                })
+                .catch((error) => {
+                    loadingDiv.style.display = 'none';
+                    errorDiv.innerHTML = 'An error occurred: ' + error.message;
+                    errorDiv.style.display = 'block';
+                });
             });
         }
     }

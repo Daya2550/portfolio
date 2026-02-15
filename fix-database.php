@@ -120,6 +120,25 @@ try {
         echo "<p>✓ Created others table</p>";
     }
     
+    // Fix messages table
+    echo "<h2>Fixing messages table</h2>";
+    
+    try {
+        $pdo->query("SELECT 1 FROM messages LIMIT 1");
+        echo "<p>✓ messages table exists</p>";
+    } catch (Exception $e) {
+        $sql = "CREATE TABLE messages (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            subject VARCHAR(255) NOT NULL,
+            message TEXT NOT NULL,
+            sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )";
+        $pdo->exec($sql);
+        echo "<p>✓ Created messages table</p>";
+    }
+    
     // Test inserting data into basic_details
     echo "<h2>Testing Data Insert</h2>";
     

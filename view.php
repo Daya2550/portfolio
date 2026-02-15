@@ -1,5 +1,5 @@
 <?php 
-require 'db.php';  
+require 'includes/config.php';  
 
 // Handle single message deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

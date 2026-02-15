@@ -118,6 +118,69 @@ CREATE TABLE IF NOT EXISTS others (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+-- 10. Messages Table
+CREATE TABLE IF NOT EXISTS messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 11. Users Table (Admin)
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 12. Awards Table
+CREATE TABLE IF NOT EXISTS awards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    provider VARCHAR(255) DEFAULT NULL,
+    date DATE DEFAULT NULL,
+    description TEXT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 13. Gallery Table
+CREATE TABLE IF NOT EXISTS gallery (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image VARCHAR(255) NOT NULL,
+    title VARCHAR(255) DEFAULT NULL,
+    description TEXT DEFAULT NULL,
+    date DATE DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 14. Services Table
+CREATE TABLE IF NOT EXISTS services (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    icon VARCHAR(100) DEFAULT 'bi-laptop',
+    description TEXT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 15. Blogs Table
+CREATE TABLE IF NOT EXISTS blogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    summary TEXT DEFAULT NULL,
+    image VARCHAR(255) DEFAULT NULL,
+    link VARCHAR(255) DEFAULT '#',
+    date DATE DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 -- Insert Sample Data
 
 -- Basic Details Sample
@@ -382,3 +445,119 @@ VALUES (
     )
 ON DUPLICATE KEY UPDATE
     summary = VALUES(summary);
+
+-- Users Sample (Admin)
+INSERT INTO
+    users (username, password, email)
+VALUES (
+        'admin',
+        'admin123',
+        'admin@example.com'
+    )
+ON DUPLICATE KEY UPDATE
+    username = VALUES(username);
+
+-- Awards Sample
+INSERT INTO
+    awards (
+        title,
+        provider,
+        date,
+        description
+    )
+VALUES (
+        'Best Developer Award',
+        'Tech Corp',
+        '2023-12-15',
+        'Awarded for outstanding contribution to project delivery.'
+    ),
+    (
+        'Hackathon Winner',
+        'University Tech Fest',
+        '2022-04-10',
+        'First prize in 24-hour coding hackathon.'
+    )
+ON DUPLICATE KEY UPDATE
+    title = VALUES(title);
+
+-- Gallery Sample
+INSERT INTO
+    gallery (
+        image,
+        title,
+        description,
+        date
+    )
+VALUES (
+        'assets/img/gallery-1.jpg',
+        'Project Launch',
+        'Launch day of our major project.',
+        '2024-01-15'
+    ),
+    (
+        'assets/img/gallery-2.jpg',
+        'Team Outing',
+        'Annual team building event.',
+        '2023-11-20'
+    )
+ON DUPLICATE KEY UPDATE
+    title = VALUES(title);
+
+-- Services Sample
+INSERT INTO
+    services (title, icon, description)
+VALUES (
+        'Web Development',
+        'bi-window-fullscreen',
+        'Building responsive, high-performance websites using modern technologies like React, PHP, and Bootstrap.'
+    ),
+    (
+        'UI/UX Design',
+        'bi-palette',
+        'Creating intuitive and visually appealing user interfaces with a focus on user experience.'
+    ),
+    (
+        'API Integration',
+        'bi-cloud-check',
+        'Seamlessly integrating third-party APIs and services into web applications.'
+    ),
+    (
+        'Database Management',
+        'bi-database',
+        'Designing and optimizing database schemas for efficient data storage and retrieval.'
+    )
+ON DUPLICATE KEY UPDATE
+    title = VALUES(title);
+
+-- Blogs Sample
+INSERT INTO
+    blogs (
+        title,
+        summary,
+        image,
+        link,
+        date
+    )
+VALUES (
+        'Understanding MVC Architecture',
+        'A deep dive into the Model-View-Controller design pattern and how it structures modern web applications.',
+        'assets/img/blog-1.jpg',
+        '#',
+        '2024-03-15'
+    ),
+    (
+        'The Future of Web Development',
+        'Exploring upcoming trends in web development including WebAssembly, AI integration, and Serverless computing.',
+        'assets/img/blog-2.jpg',
+        '#',
+        '2024-04-10'
+    ),
+    (
+        'Optimizing SQL Queries',
+        'Best practices for writing efficient SQL queries to improve application performance and scalability.',
+        'assets/img/blog-3.jpg',
+        '#',
+        '2024-05-05'
+    )
+ON DUPLICATE KEY UPDATE
+    title = VALUES(title);
